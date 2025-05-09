@@ -11,7 +11,7 @@ public abstract class Pet {
     private boolean isFed;
     private boolean needsBath;
     private boolean isSick;
-    private Set<String> edibleFoods;
+    protected Set<String> edibleFoods;
 
     // EFFECTS: constructor for pet
     public Pet(String name) {
@@ -60,7 +60,8 @@ public abstract class Pet {
     // MODIFIES: this
     // EFFECTS: feeds pet; sets isFed to false and isHungry to true
     public void getsHungry() {
-
+        this.isFed = false;
+        this.isHungry = true;
     }
 
     public boolean needsBath() {
@@ -70,7 +71,7 @@ public abstract class Pet {
     // MODIFIES: this
     // EFFECTS: pet gets dirty and wants bath
     public void becomesDirty() {
-
+        this.needsBath = false;
     }
 
     public boolean isSick() {
@@ -80,15 +81,11 @@ public abstract class Pet {
     // MODIFIES: this
     // EFFECTS: pet gets sick
     public void becomesSick() {
-        
-        
+        this.isSick = true;
     }
+
     public Set<String> getEdibleFoods() {
         return edibleFoods;
     }
-
-    
-
-    
 
 }
